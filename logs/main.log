@@ -1,0 +1,23 @@
+2025-11-08 15:45:25.569 | DEBUG    | main:search:46 - query=Rammstein; mail.ru=True; vk=True
+2025-11-08 15:47:43.528 | DEBUG    | main:search:46 - query=Rammstein; mail.ru=False; vk=True
+2025-11-08 15:47:54.776 | DEBUG    | main:search:46 - query=кино; mail.ru=False; vk=True
+2025-11-08 15:49:39.651 | DEBUG    | main:search:46 - query=Ramm; mail.ru=False; vk=True
+2025-11-08 17:17:33.526 | DEBUG    | main:search:46 - query=ramm; mail.ru=False; vk=True
+2025-11-08 23:20:53.949 | DEBUG    | main:search:46 - query=Rammstein; mail.ru=False; vk=True
+2025-11-08 23:23:39.830 | DEBUG    | main:search:46 - query=Rammstein; mail.ru=False; vk=True
+2025-11-09 18:40:24.465 | DEBUG    | main:search:46 - query=Rammtein; mail.ru=True; vk=True
+2025-11-09 18:42:27.552 | DEBUG    | main:search:46 - query=Король и шут; mail.ru=True; vk=True
+2025-11-14 21:12:06.273 | DEBUG    | main:search:46 - query=adios; mail.ru=True; vk=True
+2025-11-14 21:12:39.266 | DEBUG    | main:search:46 - query=adios; mail.ru=True; vk=True
+2025-11-14 21:13:01.129 | DEBUG    | main:search:46 - query=adios; mail.ru=False; vk=True
+2025-11-14 21:13:20.299 | DEBUG    | main:search:46 - query=adios; mail.ru=False; vk=True
+2025-11-14 21:13:31.062 | DEBUG    | main:search:46 - query=adios; mail.ru=False; vk=True
+2025-11-14 21:36:16.303 | DEBUG    | main:search:46 - query=adios; mail.ru=False; vk=True
+2025-11-14 21:40:58.027 | DEBUG    | main:search:46 - query=rammstein; mail.ru=False; vk=True
+2025-11-14 21:42:47.072 | DEBUG    | main:search:46 - query=rammstein; mail.ru=False; vk=True
+2025-11-14 22:29:38.089 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=True; vk=True
+2025-11-14 22:34:37.860 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=True; vk=True
+2025-11-16 00:42:24.977 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=False; vk=True
+2025-11-16 00:42:46.114 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=False; vk=True
+2025-11-16 00:43:05.583 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=False; vk=True
+2025-11-16 00:44:26.109 | DEBUG    | main:search:49 - query=Rammstein; mail.ru=True; vk=True

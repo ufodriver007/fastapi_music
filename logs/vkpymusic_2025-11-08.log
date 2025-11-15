@@ -1,0 +1,14 @@
+2025-11-08 15:53:47,415 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 15:54:55,135 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 15:56:08,757 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 16:00:25,985 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 16:01:04,825 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 16:02:58,736 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 16:56:23,255 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 17:04:23,423 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 17:04:35,291 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 17:18:03,314 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 17:21:12,094 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 23:02:33,655 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 23:11:45,516 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
+2025-11-08 23:14:51,618 | token_receiver.py(253) | token_receiver.auth(...) | [ERROR] Password bruteforce attempt!
