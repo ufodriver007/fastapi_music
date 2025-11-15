@@ -33,30 +33,30 @@ class User(BaseModel):
 
 class Song(BaseModel):
     id: int = Field(description="Уникальный идентификатор песни")
-    author: str = Field(description="Автор песни")
+    author: Optional[str] = Field(None, description="Автор песни")
     name: str = Field(description="Название песни")
-    album: str = Field(description="Альбом")
-    bitrate: int = Field(description="Битрейт")
+    album: Optional[str] = Field(None, description="Альбом")
+    bitrate: Optional[int] = Field(None, description="Битрейт")
     duration_text: str = Field(description="Длительность в виде текста")
     duration: int = Field(description="Длительность в секундах")
     album_cover_url: Optional[str] = Field(None, max_length=200, description="URL изображения альбома")
-    url: Optional[str] = Field(None, max_length=200, description="URL песни")
-    playlist_id: Optional[int] = Field(None, description="ID плейлиста, если есть")
+    url: str = Field(max_length=200, description="URL песни")
+    playlist_id: int = Field(description="ID плейлиста")
 
     # это позволяет преобразовывать объекты SQLAlchemy в Pydantic-модели для ответа
     model_config = ConfigDict(from_attributes=True)
 
 
 class SongCreate(BaseModel):
-    author: str = Field(description="Автор песни")
+    author: Optional[str] = Field(None, description="Автор песни")
     name: str = Field(description="Название песни")
-    album: str = Field(description="Альбом")
-    bitrate: int = Field(description="Битрейт")
+    album: Optional[str] = Field(None, description="Альбом")
+    bitrate: Optional[int] = Field(None, description="Битрейт")
     duration_text: str = Field(description="Длительность в виде текста")
     duration: int = Field(description="Длительность в секундах")
     album_cover_url: Optional[str] = Field(None, max_length=200, description="URL изображения альбома")
-    url: Optional[str] = Field(None, max_length=200, description="URL песни")
-    playlist_id: Optional[int] = Field(None, description="ID плейлиста, если есть")
+    url: str = Field(max_length=200, description="URL песни")
+    playlist_id: int = Field(description="ID плейлиста")
 
 
 class PlaylistCreate(BaseModel):
