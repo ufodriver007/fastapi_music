@@ -4,9 +4,11 @@ from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta, timezone
 import jwt
-from fastapi import Depends, HTTPException, status
+from jwt.exceptions import InvalidTokenError, ExpiredSignatureError, PyJWTError
+from fastapi import Depends, HTTPException, status, Cookie
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from typing import Optional
 
 from app.models.models import User as UserModel
 from config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS
@@ -52,8 +54,24 @@ def create_refresh_token(data: dict):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme),
+async def get_token_from_cookie(access_token: Optional[str] = Cookie(None), refresh_token: Optional[str] = Cookie(None)):
+    if access_token is None:
+        if refresh_token:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Missing access token, but refresh token found",
+            )
+
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing access token",
+        )
+    return access_token
+
+
+async def get_current_user(token: str = Depends(get_token_from_cookie),
                            db: AsyncSession = Depends(get_async_db)):
+    # token: str = Depends(oauth2_scheme)  для авторизации по заголовкам
     """
     Проверяет JWT и возвращает пользователя из базы.
     """

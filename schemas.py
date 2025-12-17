@@ -15,6 +15,16 @@ class UserCreate(BaseModel):
     password: str = Field(min_length=8, description="Пароль пользователя (минимум 8 символов)")
     email: EmailStr = Field(description="E-mail пользователя")
 
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "username": "admin",
+                "password": "12345678",
+                "email": "user@example.com"
+            }
+        }
+    )
+
 
 class User(BaseModel):
     """
