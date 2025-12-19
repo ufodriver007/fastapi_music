@@ -7,8 +7,8 @@ import config
 
 
 redis_client = redis.Redis(
-    host=os.getenv('HOST'),
-    port=6379,
+    host=config.REDIS_HOST,
+    port=config.REDIS_PORT,
     db=0,
     decode_responses=True,  # строки вместо bytes
 )

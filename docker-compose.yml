@@ -1,0 +1,67 @@
+name: fastapi-ecommerce-prod
+services:
+  web:
+    build:
+      context: .
+    command: gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_HOST=db
+      - DB_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SECRET_KEY=${SECRET_KEY}
+      - ALGORITHM=${ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+      - REFRESH_TOKEN_EXPIRE_DAYS=${REFRESH_TOKEN_EXPIRE_DAYS}
+      - HOST=${HOST}
+      - CACHE_TTL=${CACHE_TTL}
+      - THROTTLING_LIMIT=${THROTTLING_LIMIT}
+      - THROTTLING_LIMIT_TIME=${THROTTLING_LIMIT_TIME}
+    depends_on:
+      - db
+      - redis
+      - migrations
+
+  migrations:
+    build: .
+    command: sh -c "until pg_isready -h db -p 5432 -U ${DB_USER}; do sleep 1; done && alembic upgrade head"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_URL=postgresql+asyncpg://${DB_USER}:${DB_PASS}@db:5432/${DB_NAME}
+
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:

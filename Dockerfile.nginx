@@ -1,0 +1,10 @@
+FROM nginx:alpine
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY ./dist /usr/share/nginx/html
+
+COPY ./dist/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
